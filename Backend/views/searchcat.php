@@ -7,7 +7,7 @@
     <meta name="description" content="Robust admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, robust admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Display Users</title>
+    <title>Search Categories</title>
     <link rel="apple-touch-icon" sizes="60x60" href="../../app-assets/images/ico/apple-icon-60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="../../app-assets/images/ico/apple-icon-76.png">
     <link rel="apple-touch-icon" sizes="120x120" href="../../app-assets/images/ico/apple-icon-120.png">
@@ -97,6 +97,8 @@
 			  <li class="nav-item" ><a href="users.php" data-i18n="nav.dash.main" class="menu-item">Show</a>
               </li>
 			  <li class="active"><a href="searchcat.php" data-i18n="nav.dash.main" class="menu-item">Search</a>
+              </li>
+			   <li class="nav-item"><a href="statcats.php" data-i18n="nav.dash.main" class="menu-item">Statistics</a>
               </li>
             </ul>
           <li class=" navigation-header"><span data-i18n="nav.category.support">Support</span><i data-toggle="tooltip" data-placement="right" data-original-title="Support" class="icon-ellipsis icon-ellipsis"></i>

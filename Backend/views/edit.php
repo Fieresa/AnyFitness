@@ -98,6 +98,8 @@
               </li>
 			  <li class="nav-item"><a href="searchcat.php" data-i18n="nav.dash.main" class="menu-item">Search</a>
               </li>
+			   <li class="nav-item"><a href="statcats.php" data-i18n="nav.dash.main" class="menu-item">Statistics</a>
+              </li>
 			  <li class="active"><a href="users.php" data-i18n="nav.dash.main" class="menu-item">Edit</a>
               </li>
             </ul>
@@ -176,10 +178,7 @@ if (isset($_GET['userid'])){
 <td></td>
 <td><input class="button"  type="submit" name="modifier" value="Edit"></td>
 </tr>
-<tr>
-<td></td>
-<td><input type="hidden" name="userid1" value="<?PHP echo $_GET['userid'];?>"></td>
-</tr>
+<input type="hidden" name="userid1" value="<?PHP echo $_GET['userid'];?>">
 </table>
 </form>
 <?PHP

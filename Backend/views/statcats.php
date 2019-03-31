@@ -7,7 +7,7 @@
     <meta name="description" content="Robust admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, robust admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Search Users</title>
+    <title>Categories Statistics</title>
     <link rel="apple-touch-icon" sizes="60x60" href="../../app-assets/images/ico/apple-icon-60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="../../app-assets/images/ico/apple-icon-76.png">
     <link rel="apple-touch-icon" sizes="120x120" href="../../app-assets/images/ico/apple-icon-120.png">
@@ -79,13 +79,13 @@
       <!-- main menu content-->
       <div class="main-menu-content">
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
-          <li class=" nav-item"><a href="index.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Users</span></a>
+          <li class=" nav-item"><a href="#"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Users</span></a>
             <ul class="menu-content">
               <li><a href="createuser.php" data-i18n="nav.dash.main" class="menu-item">Create</a>
               </li>
-			  <li class="nav-item"><a href="showusers.php" data-i18n="nav.dash.main" class="menu-item">Show</a>
+			  <li><a href="showusers.php" data-i18n="nav.dash.main" class="menu-item">Show</a>
               </li>
-			  <li class="active"><a href="searchusers.php" data-i18n="nav.dash.main" class="menu-item">Search</a>
+			  <li class="nav-item"><a href="searchusers.php" data-i18n="nav.dash.main" class="menu-item">Search</a>
               </li>
             </ul>
           </li>
@@ -98,7 +98,7 @@
               </li>
 			  <li class="nav-item"><a href="searchcat.php" data-i18n="nav.dash.main" class="menu-item">Search</a>
               </li>
-			   <li class="nav-item"><a href="statcats.php" data-i18n="nav.dash.main" class="menu-item">Statistics</a>
+			  <li class="active"><a href="statcats.php" data-i18n="nav.dash.main" class="menu-item">Statistics</a>
               </li>
             </ul>
           <li class=" navigation-header"><span data-i18n="nav.category.support">Support</span><i data-toggle="tooltip" data-placement="right" data-original-title="Support" class="icon-ellipsis icon-ellipsis"></i>
@@ -120,16 +120,16 @@
       <div class="content-wrapper">
         <div class="content-header row">
           <div class="content-header-left col-md-6 col-xs-12 mb-1">
-            <h2 class="content-header-title">Users Management</h2>
+            <h2 class="content-header-title">Categories Management</h2>
           </div>
           <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">
             <div class="breadcrumb-wrapper col-xs-12">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a>
                 </li>
-                <li class="breadcrumb-item"><a href="createuser.php">Users</a>
+                <li class="breadcrumb-item"><a href="users.php">Categories</a>
                 </li>
-                <li class="breadcrumb-item active">Search
+                <li class="breadcrumb-item active">Statistics
                 </li>
               </ol>
             </div>
@@ -140,7 +140,7 @@
     <div class="col-xs-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Search Users</h4>
+                <h4 class="card-title">Statistics</h4>
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                 <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -152,17 +152,32 @@
                 </div>
             </div>
 			<div>
-			 
-            
-<form method="POST" action="userresults.php">
-    <table>
+			<?PHP
+include "../core/category.php";
+$category1C=new categoryC();
+$listeCategories=$category1C->stats();
+
+//var_dump($listeEmployes->fetchAll());
+?>
+<table border="1">
 <tr>
-<td>Search Parameter</td>
-<td><input type="text" name="tri"></td>
-<td><input class="button" type="submit" value="Search"></td>
+<th>Role</th>
+<th>Number</th>
+</tr>
+
+<?PHP
+foreach($listeCategories as $row){
+	?>
+	<tr>
+	<td><?PHP echo $row['role']; ?></td>
+	<td><?PHP echo $row['Number']; ?></td>
+	</tr>
+	<?PHP
+}
+?>
 </table>
-</form>
-            </div>
+                
+</div>
 
 
 <!-- Reflow end -->

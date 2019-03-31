@@ -100,6 +100,8 @@
               </li>
 			  <li class="nav-item"><a href="searchcat.php" data-i18n="nav.dash.main" class="menu-item">Search</a>
               </li>
+			   <li class="nav-item"><a href="statcats.php" data-i18n="nav.dash.main" class="menu-item">Statistics</a>
+              </li>
             </ul>
           <li class=" navigation-header"><span data-i18n="nav.category.support">Support</span><i data-toggle="tooltip" data-placement="right" data-original-title="Support" class="icon-ellipsis icon-ellipsis"></i>
           </li>
@@ -191,10 +193,7 @@ if (isset($_GET['userid'])){
 <td></td>
 <td><input class="button" type="submit" name="modifier" value="Edit"></td>
 </tr>
-<tr>
-<td></td>
-<td><input type="hidden" name="userid1" value="<?PHP echo $_GET['userid'];?>"></td>
-</tr>
+<input type="hidden" name="userid1" value="<?PHP echo $_GET['userid'];?>">
 </table>
 </form>
 <?PHP
