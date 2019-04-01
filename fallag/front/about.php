@@ -139,7 +139,7 @@
 								?>
 								</br>
 								<?PHP
-								echo "Quantity : " .$row['Qt']; ;
+								echo "Quantity : " .$row['Qt']; 
 								
 								
 							echo"</div>";

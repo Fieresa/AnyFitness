@@ -39,7 +39,7 @@
                    
                     
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </i>Products</a>
+                        <a href="afficherProduit.php" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </i>Products</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><a href="ajoutProduit.html">Add </a></li>
                             <li><a href="afficherProduit.php">Show & Manage </a></li>
@@ -47,7 +47,7 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children active dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </i>Categories</a>
+                        <a href="afficherCategorie.php" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </i>Categories</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><a href="ajoutCategorie.html">Add </a></li>
                             <li><a href="afficherCategorie.php">Show & Manage </a></li>
