@@ -68,7 +68,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-2">
-							<div id="colorlib-logo"><a href="index.html">Sidkom Firas</a></div>
+							<div id="colorlib-logo"><a href="home.php">AnyFitness</a></div>
 						</div>
 						<div class="col-md-10 text-right menu-1">
 							<ul>
@@ -146,7 +146,7 @@ if (isset($_GET['userid'])){
 							<div class="row form-group">
 								<div class="col-md-12">
 									<!-- <label for="userid">Userid</label> -->
-									<input type="number" id="email" min="1" max="999999999999999" class="form-control" placeholder="Your UserId" name="userid" value="<?PHP echo $userid ?>" required>
+									<input type="number" id="email" min="1" max="999999999999999" class="form-control" placeholder="Your UserId" name="userid" value="<?PHP echo $userid ?>" readonly>
 								</div>
 							</div>
 							
@@ -185,7 +185,7 @@ if (isset($_GET['userid'])){
 						</form>		
 						<?PHP
 	}
-}	
+}
 if (isset($_POST['modifier'])){
 	$user=new user($_POST['userid'],$_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['password']);
 	$userC->modifierUser($user,$_POST['userid1']);

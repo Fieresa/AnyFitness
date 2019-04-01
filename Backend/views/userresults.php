@@ -170,6 +170,7 @@ if(isset($_POST['tri']))
 <th>Email</th>
 <th>Password</th>
 <th>Delete</th>
+<th>Edit</th>
 </tr>
 
 <?PHP
@@ -186,6 +187,9 @@ foreach($listeUsers as $row){
   <input type="hidden" value="<?PHP echo $row['userid']; ?>" name="numcmd">
   </form>
   </td>
+  <td><a class="button" href="editusers.php?userid=<?PHP echo $row['userid']; ?>">
+	Edit</a></td>
+	</tr>
   <?PHP
 }}
 ?>

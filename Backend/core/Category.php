@@ -24,7 +24,7 @@ function afficherCategory ($category){
 	}
 	
 	function afficherCategories(){
-		$sql="SElECT * From category";
+		$sql="SElECT * From category order by role";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -96,6 +96,18 @@ try{
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
         }
+	}
+	
+	function stats(){
+		$sql="Select role,count(*) as 'Number' from category Group by role";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }	
 	}
 	
 	function rechercherListeCategory($userid){

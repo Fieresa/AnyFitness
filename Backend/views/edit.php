@@ -184,9 +184,18 @@ if (isset($_GET['userid'])){
 <?PHP
 	}
 }
+else
+{
+		echo '<script language="javascript">';
+					echo 'alert("You didnt select a user to edit.!")';
+					echo '</script>';
+}	
 if (isset($_POST['modifier'])){
 	$category=new category($_POST['userid'],$_POST['role']);
 	$categoryC->modifierCategory($category,$_POST['userid1']);
+	echo '<script language="javascript">';
+					echo 'alert("Success!")';
+					echo '</script>';
 }
 ?>
 </table>

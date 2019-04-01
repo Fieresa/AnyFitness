@@ -33,7 +33,7 @@ function afficherUser ($user){
 	}
 	
 	function afficherUsers(){
-		$sql="SElECT * From user";
+		$sql="SElECT * From user order by userid";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);

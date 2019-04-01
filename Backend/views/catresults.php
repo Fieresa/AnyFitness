@@ -167,6 +167,7 @@ if(isset($_POST['tri']))
 <th>Userid</th>
 <th>Role</th>
 <th>Delete</th>
+<th>Edit</th>
 </tr>
 
 <?PHP
@@ -180,6 +181,9 @@ foreach($listeCats as $row){
   <input type="hidden" value="<?PHP echo $row['userid']; ?>" name="userid">
   </form>
   </td>
+  <td><a class="button"  href="edit.php?userid=<?PHP echo $row['userid']; ?>">
+	Edit</a></td>
+ </tr>
   <?PHP
 }}
 ?>

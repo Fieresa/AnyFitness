@@ -171,23 +171,23 @@ if (isset($_GET['userid'])){
 <table>
 <tr>
 <td>Userid</td>
-<td><input type="text" name="userid" value="<?PHP echo $userid ?>"></td>
+<td><input type="text" name="userid" value="<?PHP echo $userid ?>" readonly></td>
 </tr>
 <tr>
 <td>Nom</td>
-<td><input type="text" name="nom" value="<?PHP echo $nom ?>"></td>
+<td><input type="text" name="nom" value="<?PHP echo $nom ?>" required></td>
 </tr>
 <tr>
 <td>Prenom</td>
-<td><input type="text" name="prenom" value="<?PHP echo $prenom ?>"></td>
+<td><input type="text" name="prenom" value="<?PHP echo $prenom ?>" required></td>
 </tr>
 <tr>
 <td>Email</td>
-<td><input type="text" name="email" value="<?PHP echo $email ?>"></td>
+<td><input type="text" name="email" value="<?PHP echo $email ?>" required></td>
 </tr>
 <tr>
 <td>Password</td>
-<td><input type="text" name="password" value="<?PHP echo $password ?>"></td>
+<td><input type="text" name="password" value="<?PHP echo $password ?> "required></td>
 </tr>
 <tr>
 <td></td>
@@ -199,9 +199,18 @@ if (isset($_GET['userid'])){
 <?PHP
 	}
 }
+else
+{
+	echo '<script language="javascript">';
+					echo 'alert("You didnt select a user to edit.!")';
+					echo '</script>';
+}
 if (isset($_POST['modifier'])){
 	$user=new user($_POST['userid'],$_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['password']);
 	$userC->modifierUser($user,$_POST['userid1']);
+	echo '<script language="javascript">';
+					echo 'alert("Sucess!")';
+					echo '</script>';
 }
 ?>
                 
