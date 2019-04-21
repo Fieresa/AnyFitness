@@ -1,10 +1,10 @@
-
 <?PHP
 include "../entities/commandes.php";
 include "../core/commandesc.php";
 if (isset($_GET['numcmd'])){
 	$commandesc=new commandesc();
     $result=$commandesc->recuperercommandes($_GET['numcmd']);
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -121,12 +121,13 @@ if (isset($_GET['numcmd'])){
 		$heure=$row['heure'];
 		$panier=$row['panier'];
 ?>
-<form method="POST">
+<form method="POST" action="">
 <table>
 <caption>Modifier commandes</caption>
 <tr>
 <td>produit</td>
 <?php
+
 
 // php select option value from database
 
@@ -147,6 +148,7 @@ $query = "select nom from produit";
 $result2 = mysqli_query($connect, $query);
 
 $options = "";
+
 
 while($row2 = mysqli_fetch_array($result2))
 {
@@ -172,8 +174,6 @@ while($row2 = mysqli_fetch_array($result2))
 <td></td>
 <td><input type="hidden" name="numcmd_ini" value="<?PHP echo $_GET['numcmd'];?>"></td>
 </tr>
-</table>
-</form>
 <?PHP
 	}
 }
@@ -181,17 +181,19 @@ if (isset($_POST['produit']) and isset($_POST['quantite']))
 	{		
 	$result1=$commandesc->idproduit($_POST['produit']);
 foreach($result1 as $row){
-		$id=$row['id'];}
-}	
+		$id=$row['id'];}	
 
 
 if (isset($_POST['modifier'])){
 	$commandes=new commandes($numcmd,5,$id,0,$_POST['quantite'],date("y/m/d"),date("H:i:s"),1);
 	$commandesc->modifiercommandes($commandes,$_POST['numcmd_ini']);
-	echo $_POST['numcmd_ini'];
-	header('Location: panier.php');
+			header('Location: panier.php');
+}
 }
 ?>
+</table>
+</form>
+
 
 
 
