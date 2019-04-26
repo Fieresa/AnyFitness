@@ -1,0 +1,116 @@
+<?PHP
+include "../config.php";
+class coachC {
+function affichercoach ($coach){
+		echo "Id_coach: ".$coach->getId_coach()."<br>";
+		echo "prenom: ".$coach->getprenom()."<br>";
+		echo "nom: ".$coach->getnom()."<br>";
+		echo "Tel: ".$coach->getTel()."<br>";
+	}
+	function calculerSalaire($coach){
+		echo 10 * 10;
+	}
+	function ajoutercoach($coach){
+		$sql="insert into coach (Id_coach,prenom,nom,Tel) values (:Id_coach,:prenom,:nom,:Tel)";
+		$db = config::getConnexion();
+		try{
+        $req=$db->prepare($sql);
+		
+        $Id_coach=$coach->getId_coach();
+        $prenom=$coach->getprenom();
+        $nom=$coach->getnom();
+        $Tel=$coach->getTel();
+		$req->bindValue(':Id_coach',$Id_coach);
+		$req->bindValue(':prenom',$prenom);
+		$req->bindValue(':nom',$nom);
+		$req->bindValue(':Tel',$Tel);
+		
+            $req->execute();
+           
+        }
+        catch (Exception $e){
+            echo 'Erreur: '.$e->getMessage();
+        }
+		
+	}
+	
+	function affichercoachs(){
+		//$sql="SElECT * From coach e inner join formationphp.coach a on e.Id_coach= a.Id_coach";
+		$sql="SElECT * From coach";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }	
+	}
+	function supprimercoach($Id_coach){
+		$sql="DELETE FROM coach where Id_coach= :Id_coach";
+		$db = config::getConnexion();
+        $req=$db->prepare($sql);
+		$req->bindValue(':Id_coach',$Id_coach);
+		try{
+            $req->execute();
+           // header('Location: index.php');
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
+	function modifiercoach($coach,$Id_coach){
+		$sql="UPDATE coach SET Id_coach=:Id_coach,prenom=:prenom,nom=:nom,Tel=:Tel WHERE Id_coach=:Id_coach";
+		
+		$db = config::getConnexion();
+		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+try{		
+        $req=$db->prepare($sql);
+		$Id_coachn=$coach->getId_coach();
+        $prenom=$coach->getprenom();
+        $nom=$coach->getnom();
+        $Tel=$coach->getTel();
+		$datas = array(':Id_coach'=>$Id_coach, ':Tel'=>$Tel, ':prenom'=>$prenom);
+		$req->bindValue(':Id_coach',$Id_coach);
+		$req->bindValue(':Tel',$Tel);
+		$req->bindValue(':prenom',$prenom);
+		$req->bindValue(':nom',$nom);
+		
+		
+            $s=$req->execute();
+			
+           // header('Location: index.php');
+        }
+        catch (Exception $e){
+            echo " Erreur ! ".$e->getMessage();
+   echo " Les datas : " ;
+  print_r($datas);
+        }
+		
+	}
+	function recuperercoach($Id_coach){
+		$sql="SELECT * from coach where Id_coach=$Id_coach";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
+	
+	function rechercherListecoach($prenom){
+		$sql="SELECT * from coach where prenom=$prenom";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
+}
+
+?>
