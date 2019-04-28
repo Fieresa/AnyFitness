@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+    session_start(); 
+                if (!isset($_SESSION['userid']) || !isset($_SESSION['role']) )
+                {                if($_SESSION['role'] != "Admin")
+                   { header("Location: loginback.php"); 
+                }
+              }
+    ?>
 <html lang="en" data-textdirection="ltr" class="loading">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

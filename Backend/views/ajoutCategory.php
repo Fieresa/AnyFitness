@@ -15,6 +15,7 @@ $category1C->ajouterCategory($category1);
 header('Location: users.php');
 }else{
 	echo "Verifier les champs.";
+
 }
 //*/
 

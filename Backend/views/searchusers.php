@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+    session_start(); 
+                if (!isset($_SESSION['userid']) || !isset($_SESSION['role']) )
+                {                if($_SESSION['role'] != "Admin")
+                   { header("Location: loginback.php"); 
+                }
+              }
+    ?>
 <html lang="en" data-textdirection="ltr" class="loading">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -151,18 +159,48 @@
                     </ul>
                 </div>
             </div>
-			<div>
-			 
-            
-<form method="POST" action="userresults.php">
-    <table>
-<tr>
-<td>Search Parameter</td>
-<td><input type="text" name="tri"></td>
-<td><input class="button" type="submit" value="Search"></td>
-</table>
-</form>
-            </div>
+			 </div>
+			 <div>
+        <div class="card-block">
+
+
+           <script src="jquery.min.js"></script>   
+           
+           <br /><br />  
+           <div id="container" >  
+                <input type="text" name="country" id="country" class="form-control" placeholder="Recherche" />
+        <p></p>
+        
+                <div id="countryList"></div>  
+           </div>  
+       
+ <script> 
+ {
+ $(document).ready(function(){  
+      $('#country').keyup(function(){  
+           var query = $(this).val(); 
+          if(query != '') 
+            { 
+                $.ajax({  
+                     url:"fetch.php",  
+                     method:"POST",  
+                     data:{query:query},  
+                     success:function(data)  
+                     {  
+                          $('#countryList').fadeIn();  
+                          $('#countryList').html(data);  
+                     }  
+                }); 
+
+       } 
+      }); 
+ });}
+
+ </script> 
+
+        </div>
+  
+	</div>
 
 
 <!-- Reflow end -->

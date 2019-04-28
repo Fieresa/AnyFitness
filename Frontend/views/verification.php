@@ -33,7 +33,7 @@ if(isset($_POST['userid']) && isset($_POST['password']))
            header('Location: login.php?erreur=1'); // utilisateur ou mot de passe incorrect
         }
     }
-    else
+    else 
     {
        header('Location: login.php?erreur=2'); // utilisateur ou mot de passe vide
     }
@@ -44,3 +44,4 @@ else
 }
 mysqli_close($db); // fermer la connexion
 ?>
+

@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+    session_start(); 
+                if (!isset($_SESSION['userid']) || !isset($_SESSION['role']) )
+                {                if($_SESSION['role'] != "Admin")
+                   { header("Location: loginback.php"); 
+                }
+              }
+    ?>
 <html lang="en" data-textdirection="ltr" class="loading">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -161,10 +169,10 @@ $listeUsers=$user1C->afficherUsers();
 ?>
 <table border="1">
 <tr>
-<th>Userid</th>
-<th>Nom</th>
-<th>Prenom</th>
-<th>Email</th>
+<th><a href="showusersbyid.php">Userid</a></th>
+<th><a href="showusersbyname.php">Nom</a></th>
+<th><a href="showusersbysurname.php">Prenom</a></th>
+<th><a href="showusersbyemail.php">Email</a></th>
 <th>Password</th>
 <th>Delete</th>
 <th>Edit</th>

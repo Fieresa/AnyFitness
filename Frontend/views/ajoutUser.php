@@ -12,12 +12,12 @@ var_dump($employe1);
 //Partie3
 $user1C=new userC();
 $user1C->ajouterUser($user1);
-header('Location: blog.html');
+header('Location: login.php');
 }else{
 	echo '<script language="javascript">';
 					echo 'alert("Check your info fields!")';
 					echo '</script>';
-	header('Location: blog.html');
+	header('Location: login.php');
 }
 //*/
 

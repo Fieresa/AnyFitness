@@ -33,6 +33,17 @@ function afficherUser ($user){
 	}
 	
 	function afficherUsers(){
+		$sql="SElECT * From user";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }	
+	}
+	function afficherUsersBYID(){
 		$sql="SElECT * From user order by userid";
 		$db = config::getConnexion();
 		try{
@@ -43,6 +54,42 @@ function afficherUser ($user){
             die('Erreur: '.$e->getMessage());
         }	
 	}
+	function afficherUsersBYNAME(){
+		$sql="SElECT * From user order by nom";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }	
+	}
+	function afficherUsersBYSURNAME(){
+		$sql="SElECT * From user order by prenom";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }	
+	}
+	function afficherUsersBYEMAIL(){
+		$sql="SElECT * From user order by email";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }	
+	}
+	
+	
+	
 	function supprimerUser($userid){
 		$sql="DELETE FROM user where userid=:userid";
 		$db = config::getConnexion();

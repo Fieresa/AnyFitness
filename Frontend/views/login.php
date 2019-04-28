@@ -86,7 +86,7 @@
 								<li class="has-dropdown active">
 									<a href="#">Account Management</a>
 									<ul class="dropdown">
-										<li><a href="signup.html">Sign Up</a></li>
+										<li><a href="signup.php">Sign Up</a></li>
 										<li><a href="login.php">Log In</a></li>
 								
 									</ul>
@@ -110,7 +110,7 @@
 				   			<div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
 				   				<div class="slider-text-inner text-center">
 				   					<h1>Account</h1>
-				   					<h2><span><a href="index.html">Home</a> | Account Creation</span></h2>
+				   					<h2><span><a href="index.html">Home</a> | Account Login</span></h2>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -131,20 +131,24 @@
 							<div class="row form-group">
 								<div class="col-md-12">
 									<!-- <label for="userid">Userid</label> -->
-									<input type="number" id="email" min="1" max="999999999999999" class="form-control" placeholder="Your UserId" name="userid" required>
+									<input type="number" id="email" min="1" max="999999999999999" class="form-control" placeholder="Your UserId" name="userid" >
 								</div>
 							</div>
 
 							<div class="row form-group">
 								<div class="col-md-12">
 									<!-- <label for="subject">Subject</label> -->
-									<input type="password" id="subject" maxlength="15" class="form-control" placeholder="Password" name="password" required>
+									<input type="password" id="subject" maxlength="15" class="form-control" placeholder="Password" name="password" >
 								</div>
 							</div>
 
 							<div class="form-group">
-								<input type="submit" value="Login" class="btn btn-primary">
+								<input type="submit" value="Login" class="btn btn-lg btn-primary btn-block">
 							</div>
+							
+							<div>
+							<a class="btn btn-lg btn-primary btn-block" href="forgotpw.php">Forgot Password</a>
+                            </div>
 						
 							<?PHP
                 if(isset($_GET['erreur'])){

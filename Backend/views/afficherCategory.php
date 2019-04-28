@@ -16,7 +16,7 @@ $listeCategories=$category1C->stats();
 <th>Role</th>
 <th>Number</th>
 </tr>
-
+<tr>
 <?PHP
 foreach($listeCategories as $row){
 	?>
@@ -27,6 +27,7 @@ foreach($listeCategories as $row){
 	<?PHP
 }
 ?>
+</tr>
 </table>
 
 </body>

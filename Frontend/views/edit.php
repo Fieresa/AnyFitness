@@ -8,7 +8,7 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta name="author" content="" />
-
+    			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
@@ -111,7 +111,7 @@
 				   			<div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
 				   				<div class="slider-text-inner text-center">
 				   					<h1>Account</h1>
-				   					<h2><span><a href="index.html">Home</a> | Account Creation</span></h2>
+				   					<h2><span><a href="index.html">Home</a> | Edit Profile</span></h2>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -165,7 +165,7 @@ if (isset($_GET['userid'])){
 							<div class="row form-group">
 								<div class="col-md-12">
 									<!-- <label for="email">Email</label> -->
-									<input type="text" id="email" maxlength="40" class="form-control" placeholder="Your email address" name="email" value="<?PHP echo $email ?>" required>
+									<input type="email" id="email" maxlength="40" class="form-control" placeholder="Your email address" name="email" value="<?PHP echo $email ?>" required>
 								</div>
 							</div>
 							

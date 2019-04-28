@@ -1,0 +1,40 @@
+*include "../entities/userH.php";
+include "../core/user.php";
+require_once './vendor/autoload.php';
+try {
+	$userC=new userC();
+    $result=$userC->recupererUser(33265);
+	foreach($result as $row){
+		$userid=$row['userid'];
+		$nom=$row['nom'];
+		$prenom=$row['prenom'];
+		$email=$row['email'];
+		$password=$row['password'];
+	}
+    // Create the SMTP Transport
+    $transport = (new Swift_SmtpTransport('smtp.gmail.com',465))
+        ->setUsername('kirin.esports@gmail.com')
+        ->setPassword('ffanMai2019');
+    // Create the Mailer using your created Transport
+    $mailer = new Swift_Mailer($transport);
+ 
+    // Create a message
+    $message = new Swift_Message();
+ 
+    // Set a "subject"
+    $message->setSubject('Password Reset');
+ 
+    // Set the "From address"
+    $message->setFrom(['therakuyo@gmail.com' => 'sender name']);
+ 
+    // Set the "To address" [Use setTo method for multiple recipients, argument should be array]
+   // $message->addTo($email,'recipient name');
+ $message->addTo('firaskun@gmail.com','recipient name');
+    // Set a "Body"
+    $message->addPart('This is your password: '.$password.'Thank me later.', 'text/html');
+ 
+    // Send the message
+    $result = $mailer->send($message);
+} catch (Exception $e) {
+  echo $e->getMessage();
+}*/

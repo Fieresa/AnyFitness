@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+    session_start(); 
+                if (!isset($_SESSION['userid']) || !isset($_SESSION['role']) )
+                {                if($_SESSION['role'] != "Admin")
+                   { header("Location: loginback.php"); 
+                }
+              }
+    ?>
 <html lang="en" data-textdirection="ltr" class="loading">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -167,7 +175,10 @@ if (isset($_GET['userid'])){
 		$email=$row['email'];
 		$password=$row['password'];
 ?>
+
 <form method="POST">
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <table>
 <tr>
 <td>Userid</td>
@@ -183,7 +194,7 @@ if (isset($_GET['userid'])){
 </tr>
 <tr>
 <td>Email</td>
-<td><input type="text" name="email" value="<?PHP echo $email ?>" required></td>
+<td><input type="email" name="email" value="<?PHP echo $email ?>" required></td>
 </tr>
 <tr>
 <td>Password</td>
